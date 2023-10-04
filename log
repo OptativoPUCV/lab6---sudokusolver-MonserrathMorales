@@ -23,3 +23,31 @@ Wed 04 Oct 2023 10:49:20 PM UTC:
  tests:  0|5
 total_score: 0/70
 b527f8e
+Wed 04 Oct 2023 11:46:00 PM UTC: 
+ sudoku.c | 51 ++++++++++++++++++++++++++++++++++++++++++++++++---
+ 1 file changed, 48 insertions(+), 3 deletions(-)
+In file included from test.c:5:
+sudoku.c: In function ‘DFS’:
+sudoku.c:107:10: error: implicit declaration of function ‘size’ [-Werror=implicit-function-declaration]
+  107 |   while (size(pila) != 0){
+      |          ^~~~
+sudoku.c:108:20: error: void value not ignored as it ought to be
+  108 |      Node * nodo = pop(pila);
+      |                    ^~~
+test.c:245:5: error: ‘main’ is normally a non-static function [-Werror=main]
+  245 | int main( int argc, char *argv[] ) {
+      |     ^~~~
+test.c:262:1: error: expected declaration or statement at end of input
+  262 | }
+      | ^
+test.c:263: error: control reaches end of non-void function [-Werror=return-type]
+At top level:
+test.c:245:5: error: ‘main’ defined but not used [-Werror=unused-function]
+  245 | int main( int argc, char *argv[] ) {
+      |     ^~~~
+test.c:7:8: error: ‘_strdup’ defined but not used [-Werror=unused-function]
+    7 | char * _strdup(const char * str) {
+      |        ^~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+3145b21
