@@ -50,8 +50,18 @@ int is_valid(Node* n){
 
 
 List* get_adj_nodes(Node* n){
-    List* list=createList();
-    return list;
+  List* list=createList();
+
+  for(size_t i = 0; i < 9; i++) {
+    for(size_t k = 0; k < 9; k++) {
+      // si esta vacio, crear un posible movimiento (nodo adyacente)
+      if(n->sudo[i][k] == NULL) {
+        
+      }
+    }
+  }
+  
+  return list;
 }
 
 
