@@ -51,3 +51,17 @@ test.c:7:8: error: ‘_strdup’ defined but not used [-Werror=unused-function]
 cc1: all warnings being treated as errors
 Compilation failed
 3145b21
+Wed 04 Oct 2023 11:46:17 PM UTC: 
+ sudoku.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:5:
+sudoku.c: In function ‘DFS’:
+sudoku.c:107:10: error: implicit declaration of function ‘size’ [-Werror=implicit-function-declaration]
+  107 |   while (size(pila) != 0){
+      |          ^~~~
+sudoku.c:108:20: error: void value not ignored as it ought to be
+  108 |      Node * nodo = pop(pila);
+      |                    ^~~
+cc1: all warnings being treated as errors
+Compilation failed
+3a5dfe8
