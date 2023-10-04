@@ -55,7 +55,7 @@ List* get_adj_nodes(Node* n){
   for(size_t i = 0; i < 9; i++) {
     for(size_t k = 0; k < 9; k++) {
       // si esta vacio, crear un posible movimiento (nodo adyacente)
-      if(n->sudo[i][k] == NULL) {
+      if(n->sudo[i][k] == '') {
         
       }
     }
