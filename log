@@ -65,3 +65,13 @@ sudoku.c:108:20: error: void value not ignored as it ought to be
 cc1: all warnings being treated as errors
 Compilation failed
 3a5dfe8
+Wed 04 Oct 2023 11:51:08 PM UTC: 
+ sudoku.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:5:
+sudoku.c: In function ‘DFS’:
+sudoku.c:108:20: error: void value not ignored as it ought to be
+  108 |      Node * nodo = pop(pila);
+      |                    ^~~
+Compilation failed
+d6db26b
