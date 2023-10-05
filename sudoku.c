@@ -46,6 +46,7 @@ void print_node(Node* n){
 
   // rellenar la casilla con un valor del 1 al 9, solo si cumple con las reglas del sudoku (que no se repita el numero en la fila, columna o cuadrado [3][3])
 int is_valid(Node* n){ 
+  /*
   for(size_t i = 0; i < 9; i++) {
     for(size_t k = 0; k < 9; k++)
 
@@ -64,7 +65,7 @@ int is_valid(Node* n){
         
         // condicion 3: que el numero no este en el mismo cuadrado (3x3)
   }
-      
+      */
         
     return 1;
 }
@@ -99,7 +100,7 @@ int is_final(Node* n){
 }
 
 
-Node* DFS(Node* initial, int* cont){
+Node* DFS(Node* initial, int* cont){ /*
   Stack * pila = createStack();
   push(pila,initial);
   
@@ -116,7 +117,7 @@ Node* DFS(Node* initial, int* cont){
         push(pila,aux);
         aux=next(adj);
     }
-  }
+  } */
   return NULL;
 }
 
