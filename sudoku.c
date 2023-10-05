@@ -68,7 +68,6 @@ int is_valid(Node* n){ /*
 
 List* get_adj_nodes(Node* n){
   List* list=createList();
-  int numero = 1;
 
   for(size_t i = 0; i < 9; i++) {
     for(size_t k = 0; k < 9; k++) {
@@ -94,15 +93,18 @@ Node* DFS(Node* initial, int* cont){
   push(pila,initial);
   
   while (!is_empty(pila)){
-     Node * nodo = pop(pila);
+    Node * nodo = pila->first;
+    if (nodo == NULL) {
+            continue;
+        }
     
-     List * adj = get_adj_nodes(nodo);
-     Node * aux = first(adj);
+    List * adj = get_adj_nodes(nodo);
+    Node * aux = first(adj);
     
-     while(aux){
+    while(aux){
         push(pila,aux);
         aux=next(adj);
-     }
+    }
   }
   return NULL;
 }
