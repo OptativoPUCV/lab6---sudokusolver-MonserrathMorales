@@ -59,9 +59,8 @@ int is_valid(Node* n){
 
           // condicion 2: que el numero no este en la misma columna
           size_t columna = k;
-          while(columna < 9) {
-            columna++;
-            if(n->sudo[i][columna] == valor) {
+          for (size_t columna = 0; columna < 9; columna++) {
+            if (columna != k && n->sudo[i][columna] == valor) {
               return 0;
             }
           }
@@ -70,7 +69,7 @@ int is_valid(Node* n){
           size_t col_inicial = (k / 3) * 3;
           for(size_t fila = fila_inicial; fila < fila_inicial + 3; fila++) {
             for(size_t columna = col_inicial; columna < col_inicial + 3; columna++) {
-              if(n->sudo[fila][columna] == valor) {
+              if(fila != i || columna != k && n->sudo[fila][columna] == valor) {
                 return 0;
               }
             }

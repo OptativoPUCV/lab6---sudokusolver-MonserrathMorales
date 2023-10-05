@@ -184,3 +184,17 @@ Thu 05 Oct 2023 07:36:29 PM UTC:
  tests:  0|5
 total_score: 0/70
 fdb0742
+Thu 05 Oct 2023 07:37:59 PM UTC: 
+ sudoku.c | 7 +++----
+ 1 file changed, 3 insertions(+), 4 deletions(-)
+In file included from test.c:5:
+sudoku.c: In function ‘is_valid’:
+sudoku.c:72:44: error: suggest parentheses around ‘&&’ within ‘||’ [-Werror=parentheses]
+   72 |               if(fila != i || columna != k && n->sudo[fila][columna] == valor) {
+      |                               ~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+sudoku.c:61:18: error: unused variable ‘columna’ [-Werror=unused-variable]
+   61 |           size_t columna = k;
+      |                  ^~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+6ac4ffc
