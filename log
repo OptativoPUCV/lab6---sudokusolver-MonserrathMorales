@@ -252,3 +252,14 @@ Thu 05 Oct 2023 08:08:36 PM UTC:
  tests:  0|5
 total_score: 0/70
 ecc6f21
+Thu 05 Oct 2023 08:28:46 PM UTC: 
+ sudoku.c | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
+In file included from test.c:5:
+sudoku.c: In function ‘get_adj_nodes’:
+sudoku.c:91:27: error: assignment to ‘int’ from ‘Node *’ makes integer from pointer without a cast [-Werror=int-conversion]
+   91 |           n->sudo[i][col] = vecino;
+      |                           ^
+cc1: all warnings being treated as errors
+Compilation failed
+eb45090
