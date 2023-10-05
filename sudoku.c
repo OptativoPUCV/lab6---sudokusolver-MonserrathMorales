@@ -100,6 +100,7 @@ List* get_adj_nodes(Node* n){
           } else {     
             free(posibleJugada);
           }
+          num++;
         }
         // for (int num = 1; num <= 9; num++) {
       }
