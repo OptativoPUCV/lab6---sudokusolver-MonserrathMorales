@@ -75,3 +75,18 @@ sudoku.c:108:20: error: void value not ignored as it ought to be
       |                    ^~~
 Compilation failed
 d6db26b
+Thu 05 Oct 2023 12:42:01 AM UTC: 
+ sudoku.c | 40 ++++++++++++++--------------------------
+ 1 file changed, 14 insertions(+), 26 deletions(-)
+In file included from test.c:5:
+sudoku.c: In function ‘get_adj_nodes’:
+sudoku.c:71:7: error: unused variable ‘numero’ [-Werror=unused-variable]
+   71 |   int numero = 1;
+      |       ^~~~~~
+sudoku.c: In function ‘DFS’:
+sudoku.c:97:20: error: void value not ignored as it ought to be
+   97 |      Node * nodo = pop(pila);
+      |                    ^~~
+cc1: all warnings being treated as errors
+Compilation failed
+e1b999c

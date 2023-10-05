@@ -44,27 +44,10 @@ void print_node(Node* n){
     printf("\n");
 }
 
-int is_valid(Node* n){
-
-    return 1;
-}
-
-/* > - Utilice la función Node* copy(Node* n) para copiar nodos. */
-List* get_adj_nodes(Node* n){
-  List* list=createList();/*
-  int numero = 1;
-  bool existe = false;
-
-  for(size_t i = 0; i < 9; i++) {
-    for(size_t k = 0; k < 9; k++) {
-      // si esta vacio, crear una posible jugada (nodo adyacente). Se debe copiar el nodo n.
-      if(n->sudo[i][k] == ' ') {
-        // Node * posibleJugada = (Node *) malloc(sizeof(Node));
-        Node * posibleJugada = copy(n);
-
-        // rellenar la casilla con un valor del 1 al 9, solo si cumple con las reglas del sudoku (que no se repita el numero en la fila, columna o cuadrado [3][3])
-
-        // condicion 1: que el numero no este en la misma fila
+int is_valid(Node* n){ /*
+  // rellenar la casilla con un valor del 1 al 9, solo si cumple con las reglas del sudoku (que no se repita el numero en la fila, columna o cuadrado [3][3])
+  
+    // condicion 1: que el numero no este en la misma fila
         while(k < 9) {
           if(posibleJugada->sudo[i][k] == numero) {
             
@@ -77,21 +60,26 @@ List* get_adj_nodes(Node* n){
 
 
         
-        // condicion 3: que el numero no este en el mismo cuadrado (3x3)
+        // condicion 3: que el numero no este en el mismo cuadrado (3x3) */
         
+    return 1;
+}
 
-        
-        posibleJugada->sudo[i][k] = numero;
 
+List* get_adj_nodes(Node* n){
+  List* list=createList();
+  int numero = 1;
+
+  for(size_t i = 0; i < 9; i++) {
+    for(size_t k = 0; k < 9; k++) {
+      // si esta vacio, crear una posible jugada (nodo adyacente). Se debe copiar el nodo n.
+      if(n->sudo[i][k] == ' ') {
+        // Node * posibleJugada = (Node *) malloc(sizeof(Node));
+        Node * posibleJugada = copy(n);
         pushBack(list, posibleJugada);
       }
     }
   }
-
-
-
-
-  */
   return list;
 }
 
@@ -100,11 +88,12 @@ int is_final(Node* n){
     return 0;
 }
 
+
 Node* DFS(Node* initial, int* cont){
   Stack * pila = createStack();
   push(pila,initial);
   
-  while (sizeof(pila) != 0){
+  while (!is_empty(pila)){
      Node * nodo = pop(pila);
     
      List * adj = get_adj_nodes(nodo);
