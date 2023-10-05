@@ -212,3 +212,14 @@ sudoku.c:61:18: error: unused variable ‘columna’ [-Werror=unused-variable]
 cc1: all warnings being treated as errors
 Compilation failed
 02c9311
+Thu 05 Oct 2023 07:38:54 PM UTC: 
+ sudoku.c | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+In file included from test.c:5:
+sudoku.c: In function ‘is_valid’:
+sudoku.c:71:48: error: suggest parentheses around ‘&&’ within ‘||’ [-Werror=parentheses]
+   71 |               if((fila != i) || (columna != k) && (n->sudo[fila][columna] == valor)) {
+      |                                 ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+af7034f
