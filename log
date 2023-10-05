@@ -263,3 +263,14 @@ sudoku.c:91:27: error: assignment to ‘int’ from ‘Node *’ makes integer f
 cc1: all warnings being treated as errors
 Compilation failed
 eb45090
+Thu 05 Oct 2023 09:03:06 PM UTC: 
+ sudoku.c | 11 ++++++-----
+ 1 file changed, 6 insertions(+), 5 deletions(-)
+In file included from test.c:5:
+sudoku.c: In function ‘get_adj_nodes’:
+sudoku.c:89:16: error: unused variable ‘nodo’ [-Werror=unused-variable]
+   89 |         Node * nodo = copy(n);
+      |                ^~~~
+cc1: all warnings being treated as errors
+Compilation failed
+81c31f2
