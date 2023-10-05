@@ -274,3 +274,9 @@ sudoku.c:89:16: error: unused variable ‘nodo’ [-Werror=unused-variable]
 cc1: all warnings being treated as errors
 Compilation failed
 81c31f2
+Thu 05 Oct 2023 09:11:15 PM UTC: 
+ sudoku.c | 1 -
+ 1 file changed, 1 deletion(-)
+ tests:  0|5
+total_score: 0/70
+9e4e7e7

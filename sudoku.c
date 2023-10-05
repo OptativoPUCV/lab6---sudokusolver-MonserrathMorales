@@ -86,7 +86,6 @@ List* get_adj_nodes(Node* n){
     for(size_t k = 0; k < 9; k++) {
       // si esta vacio, crear una posible jugada (nodo adyacente).
       if(n->sudo[i][k] == 0) {
-        Node * nodo = copy(n);
         for (size_t valor = 1; valor <= 9; valor++) {
           Node * copia = copy(n);
           copia->sudo[i][k] = valor + 1;
