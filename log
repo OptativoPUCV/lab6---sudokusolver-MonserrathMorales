@@ -100,3 +100,20 @@ sudoku.c:96:23: error: invalid use of incomplete typedef ‘Stack’ {aka ‘Lis
       |                       ^~
 Compilation failed
 6303850
+Thu 05 Oct 2023 06:55:36 PM UTC: 
+ sudoku.c | 23 +++++++++++++++++------
+ 1 file changed, 17 insertions(+), 6 deletions(-)
+In file included from test.c:5:
+sudoku.c: In function ‘is_valid’:
+sudoku.c:54:31: error: ‘numero’ undeclared (first use in this function)
+   54 |           if(n->sudo[i][k] == numero) {
+      |                               ^~~~~~
+sudoku.c:54:31: note: each undeclared identifier is reported only once for each function it appears in
+sudoku.c:61:9: error: ‘posibleJugada’ undeclared (first use in this function)
+   61 |         posibleJugada->sudo[i][k] = numero;
+      |         ^~~~~~~~~~~~~
+sudoku.c:61:32: error: ‘k’ undeclared (first use in this function)
+   61 |         posibleJugada->sudo[i][k] = numero;
+      |                                ^
+Compilation failed
+014b995

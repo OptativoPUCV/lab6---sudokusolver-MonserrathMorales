@@ -44,12 +44,14 @@ void print_node(Node* n){
     printf("\n");
 }
 
-int is_valid(Node* n){ /*
   // rellenar la casilla con un valor del 1 al 9, solo si cumple con las reglas del sudoku (que no se repita el numero en la fila, columna o cuadrado [3][3])
-  
-    // condicion 1: que el numero no este en la misma fila
-        while(k < 9) {
-          if(posibleJugada->sudo[i][k] == numero) {
+int is_valid(Node* n){ 
+  for(size_t i = 0; i < 9; i++) {
+    for(size_t k = 0; k < 9; k++)
+
+      // condicion 1: No se repitan números en las filas
+      while(k < 9) {
+          if(n->sudo[i][k] == numero) {
             
           }
           k++;
@@ -60,7 +62,9 @@ int is_valid(Node* n){ /*
 
 
         
-        // condicion 3: que el numero no este en el mismo cuadrado (3x3) */
+        // condicion 3: que el numero no este en el mismo cuadrado (3x3)
+  }
+      
         
     return 1;
 }
@@ -73,9 +77,16 @@ List* get_adj_nodes(Node* n){
     for(size_t k = 0; k < 9; k++) {
       // si esta vacio, crear una posible jugada (nodo adyacente). Se debe copiar el nodo n.
       if(n->sudo[i][k] == ' ') {
-        // Node * posibleJugada = (Node *) malloc(sizeof(Node));
-        Node * posibleJugada = copy(n);
-        pushBack(list, posibleJugada);
+        for (int num = 1; num <= 9; num++) {
+          Node* posibleJugada = copy(n);
+          posibleJugada->sudo[i][k] = num;
+
+          if (is_valid(posibleJugada)) {
+            pushBack(list, posibleJugada);
+          } else {     
+            free(posibleJugada);
+          }
+        }
       }
     }
   }
@@ -93,10 +104,10 @@ Node* DFS(Node* initial, int* cont){
   push(pila,initial);
   
   while (!is_empty(pila)){
-    Node * nodo = pila->first;
+    Node * nodo = first(pila);
     if (nodo == NULL) {
-            continue;
-        }
+      continue;
+    }
     
     List * adj = get_adj_nodes(nodo);
     Node * aux = first(adj);
