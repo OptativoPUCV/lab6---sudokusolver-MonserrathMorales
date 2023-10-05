@@ -89,13 +89,9 @@ List* get_adj_nodes(Node* n){
         for (int num = 1; num <= 9; num++) {
           Node* posibleJugada = copy(n);
           posibleJugada->sudo[i][k] = num;
-
-          if (is_valid(posibleJugada)) {
-            pushBack(list, posibleJugada);
-          } else {     
-            free(posibleJugada);
-          }
+          pushBack(list, posibleJugada);
         }
+        return list;
       }
     }
   }
