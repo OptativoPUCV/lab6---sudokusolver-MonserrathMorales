@@ -44,19 +44,23 @@ void print_node(Node* n){
     printf("\n");
 }
 
-  // rellenar la casilla con un valor del 1 al 9, solo si cumple con las reglas del sudoku (que no se repita el numero en la fila, columna o cuadrado [3][3])
+  // Para marcar los números que vayan apareciendo en una fila/columna/submatriz puede usar un arreglo de enteros de largo 10 inicializado con 0s. Cada vez que aparezca un número i, verifique que la casilla i del arreglo sea igual a 0, luego márquela con un '1'. Si la casilla es '1' quiere decir que el número ya estaba marcado por lo que la fla/columna/submatriz no es válida.
 int is_valid(Node* n){ 
-      for(size_t i = 0; i < 9; i++) {
-        for(size_t k = 0; k < 9; k++) {
-          int valor = n->sudo[i][k];
+  int arrAux_fila[9][10] = {0};
+  int arrAux_col[9][10] = {0};
+  
+  for(size_t i = 0; i < 9; i++) {
+    for(size_t k = 0; k < 9; k++) {
+      int num = n->sudo[i][k];
 
-          // condicion 1: No se repitan números en las filas
-          for (size_t fila = 0; fila < 9; fila++) {
-            if (fila != i && n->sudo[fila][k] == valor) {
-              return 0;
-            }
-          }
-
+      if(arrAux_fila[i][num] || arrAux_col[k][num]) {
+        return 0;
+      }
+      
+      arrAux_fila[i][num] = 1;
+      arrAux_col[k][num] = 1;
+      
+          /*
           // condicion 2: que el numero no este en la misma columna
           for (size_t columna = 0; columna < 9; columna++) {
             if (columna != k && n->sudo[i][columna] == valor) {
@@ -73,10 +77,10 @@ int is_valid(Node* n){
               }
             }
           }
-        }
-      }
-        
-    return 1;
+        }*/
+    }
+  }
+  return 1;
 }
 
 List* get_adj_nodes(Node* n){
@@ -86,10 +90,10 @@ List* get_adj_nodes(Node* n){
     for(size_t k = 0; k < 9; k++) {
       // si esta vacio, crear una posible jugada (nodo adyacente).
       if(n->sudo[i][k] == 0) {
-        for (size_t valor = 1; valor <= 9; valor++) {
-          Node * copia = copy(n);
-          copia->sudo[i][k] = valor;
-          pushBack(list, copia);
+        for (int num = 1; num <= 9; num++) {
+          Node * copiaNodo = copy(n);
+          copiaNodo->sudo[i][k] = num;
+          pushBack(list, copiaNodo);
         }
         return list;
       }
