@@ -53,7 +53,7 @@ int is_valid(Node* n){
     for(size_t k = 0; k < 9; k++) {
       int num = n->sudo[i][k];
 
-      if(arrAux_fila[i][num] || arrAux_col[k][num]) {
+      if(arrAux_fila[i][num] == 1 || arrAux_col[k][num] == 1) {
         return 0;
       }
       
