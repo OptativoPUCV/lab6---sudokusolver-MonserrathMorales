@@ -167,3 +167,14 @@ Thu 05 Oct 2023 07:26:39 PM UTC:
  tests:  0|5
 total_score: 0/70
 83eb572
+Thu 05 Oct 2023 07:31:58 PM UTC: 
+ sudoku.c | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
+In file included from test.c:5:
+sudoku.c: In function ‘is_valid’:
+sudoku.c:70:15: error: ‘fila’ undeclared (first use in this function)
+   70 |           for(fila = i; fila < i + 3; fila++) {
+      |               ^~~~
+sudoku.c:70:15: note: each undeclared identifier is reported only once for each function it appears in
+Compilation failed
+50b6878

@@ -51,10 +51,8 @@ int is_valid(Node* n){
           int valor = n->sudo[i][k];
 
           // condicion 1: No se repitan números en las filas
-          size_t fila = i;
-          while(fila < 9) {
-            fila++;
-            if(n->sudo[fila][k] == valor) {
+          for (size_t fila = 0; fila < 9; fila++) {
+            if (fila != i && n->sudo[fila][k] == valor) {
               return 0;
             }
           }
