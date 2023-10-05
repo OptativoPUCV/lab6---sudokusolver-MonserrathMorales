@@ -69,7 +69,7 @@ int is_valid(Node* n){
           size_t col_inicial = (k / 3) * 3;
           for(size_t fila = fila_inicial; fila < fila_inicial + 3; fila++) {
             for(size_t columna = col_inicial; columna < col_inicial + 3; columna++) {
-              if(fila != i || columna != k && n->sudo[fila][columna] == valor) {
+              if((fila != i) || (columna != k) && n->sudo[fila][columna] == valor) {
                 return 0;
               }
             }
