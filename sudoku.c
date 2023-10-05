@@ -68,7 +68,7 @@ int is_valid(Node* n){
             }
           }
           // condicion 3: que el numero no este en el mismo cuadrado (3x3)
-          if(i==0&&k==0 || i==0&&k==3 || i==0&&k==6 || i==3&&k==0 || i==3&&k==3 || i==3&&k==6 || i==6&&k==0 || i==6&&k==3 || i==6&&k==6)
+          if((i==0&&k==0) || (i==0&&k==3) || (i==0&&k==6) || (i==3&&k==0) || (i==3&&k==3) || (i==3&&k==6) || (i==6&&k==0) || (i==6&&k==3) || (i==6&&k==6))
           for(fila = i; fila < i + 3; fila++) {
             for(columna = k; columna < k + 3; columna++) {
               if(n->sudo[fila][columna] == valor) {
