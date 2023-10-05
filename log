@@ -123,3 +123,35 @@ Thu 05 Oct 2023 06:56:47 PM UTC:
  tests:  0|5
 total_score: 0/70
 8c6f186
+Thu 05 Oct 2023 07:24:26 PM UTC: 
+ sudoku.c | 38 ++++++++++++++++++++++++++------------
+ 1 file changed, 26 insertions(+), 12 deletions(-)
+In file included from test.c:5:
+sudoku.c: In function ‘is_valid’:
+sudoku.c:71:18: error: suggest parentheses around ‘&&’ within ‘||’ [-Werror=parentheses]
+   71 |           if(i==0&&k==0 || i==0&&k==3 || i==0&&k==6 || i==3&&k==0 || i==3&&k==3 || i==3&&k==6 || i==6&&k==0 || i==6&&k==3 || i==6&&k==6)
+      |              ~~~~^~~~~~
+sudoku.c:71:46: error: suggest parentheses around ‘&&’ within ‘||’ [-Werror=parentheses]
+   71 |           if(i==0&&k==0 || i==0&&k==3 || i==0&&k==6 || i==3&&k==0 || i==3&&k==3 || i==3&&k==6 || i==6&&k==0 || i==6&&k==3 || i==6&&k==6)
+      |                                          ~~~~^~~~~~
+sudoku.c:71:60: error: suggest parentheses around ‘&&’ within ‘||’ [-Werror=parentheses]
+   71 |           if(i==0&&k==0 || i==0&&k==3 || i==0&&k==6 || i==3&&k==0 || i==3&&k==3 || i==3&&k==6 || i==6&&k==0 || i==6&&k==3 || i==6&&k==6)
+      |                                                        ~~~~^~~~~~
+sudoku.c:71:74: error: suggest parentheses around ‘&&’ within ‘||’ [-Werror=parentheses]
+   71 |           if(i==0&&k==0 || i==0&&k==3 || i==0&&k==6 || i==3&&k==0 || i==3&&k==3 || i==3&&k==6 || i==6&&k==0 || i==6&&k==3 || i==6&&k==6)
+      |                                                                      ~~~~^~~~~~
+sudoku.c:71:88: error: suggest parentheses around ‘&&’ within ‘||’ [-Werror=parentheses]
+   71 |           if(i==0&&k==0 || i==0&&k==3 || i==0&&k==6 || i==3&&k==0 || i==3&&k==3 || i==3&&k==6 || i==6&&k==0 || i==6&&k==3 || i==6&&k==6)
+      |                                                                                    ~~~~^~~~~~
+sudoku.c:71:102: error: suggest parentheses around ‘&&’ within ‘||’ [-Werror=parentheses]
+   71 |           if(i==0&&k==0 || i==0&&k==3 || i==0&&k==6 || i==3&&k==0 || i==3&&k==3 || i==3&&k==6 || i==6&&k==0 || i==6&&k==3 || i==6&&k==6)
+      |                                                                                                  ~~~~^~~~~~
+sudoku.c:71:116: error: suggest parentheses around ‘&&’ within ‘||’ [-Werror=parentheses]
+   71 |           if(i==0&&k==0 || i==0&&k==3 || i==0&&k==6 || i==3&&k==0 || i==3&&k==3 || i==3&&k==6 || i==6&&k==0 || i==6&&k==3 || i==6&&k==6)
+      |                                                                                                                ~~~~^~~~~~
+sudoku.c:71:130: error: suggest parentheses around ‘&&’ within ‘||’ [-Werror=parentheses]
+   71 |           if(i==0&&k==0 || i==0&&k==3 || i==0&&k==6 || i==3&&k==0 || i==3&&k==3 || i==3&&k==6 || i==6&&k==0 || i==6&&k==3 || i==6&&k==6)
+      |                                                                                                                              ~~~~^~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+1ee296b
