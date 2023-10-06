@@ -142,27 +142,22 @@ Node* DFS(Node* initial, int* cont) {
       continue;
     }
 
-    Node * current = first(visitados);
-    int encontrado = 0;
+    void * current = front(visitados);
     while(current != NULL) {
       if(current == nodo) {
-        encontrado = 1;
         break;
       }
       current = next(visitados);
     }
-    if(encontrado) {
-      pop(pila);
-      continue;
-    }
+    if(current == NULL) {
+      push(visitados, nodo);
+      List * adj = get_adj_nodes(nodo);
+      Node * aux = first(adj);
 
-    push(visitados, nodo);
-    List * adj = get_adj_nodes(nodo);
-    Node * aux = first(adj);
-    
-    while(aux) {
+      while(aux) {
         push(pila,aux);
         aux = next(adj);
+      }
     }
     pop(pila);
   }
