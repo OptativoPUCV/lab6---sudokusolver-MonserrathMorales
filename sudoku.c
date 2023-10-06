@@ -48,7 +48,7 @@ void print_node(Node* n){
 int is_valid(Node* n){ 
   int arrAux_fila[10] = {0};
   int arrAux_col[10] = {0};
-  int arrAux_subM[10] = {0}
+  int arrAux_subM[10] = {0};
 
   // condicion 1: Ningun numero repetido en la misma fila
   for(size_t i = 0; i < 9; i++) {
@@ -93,7 +93,7 @@ int is_valid(Node* n){
       else return 0;
       // reestablecer valores en 0 para siguiente submatriz.
       for (int j = 0; j < 10; j++) {
-        arrAux_submatriz[j] = 0;
+        arrAux_subM[j] = 0;
       }
     }
   }
