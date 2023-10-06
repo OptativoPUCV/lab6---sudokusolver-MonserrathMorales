@@ -46,40 +46,46 @@ void print_node(Node* n){
 
   // Para marcar los números que vayan apareciendo en una fila/columna/submatriz puede usar un arreglo de enteros de largo 10 inicializado con 0s. Cada vez que aparezca un número i, verifique que la casilla i del arreglo sea igual a 0, luego márquela con un '1'. Si la casilla es '1' quiere decir que el número ya estaba marcado por lo que la fla/columna/submatriz no es válida.
 int is_valid(Node* n){ 
-  int arrAux_fila[9][10] = {0};
-  int arrAux_col[9][10] = {0};
-  
+  int arrAux_fila[10] = {0};
+  int arrAux_col[10] = {0};
+
+  // condicion 1: Ningun numero repetido en la misma fila
   for(size_t i = 0; i < 9; i++) {
     for(size_t k = 0; k < 9; k++) {
-      int num = n->sudo[i][k];
-
-      if(arrAux_fila[i][num] == 1 || arrAux_col[k][num] == 1) {
-        return 0;
+      int num_fila = n->sudo[i][k];
+      
+      if(arrAux_fila[num_fila] == 0) {
+        arrAux_fila[num_fila] = 1;
       }
-      
-      arrAux_fila[i][num] = 1;
-      arrAux_col[k][num] = 1;
-      
-          /*
-          // condicion 2: que el numero no este en la misma columna
-          for (size_t columna = 0; columna < 9; columna++) {
-            if (columna != k && n->sudo[i][columna] == valor) {
-              return 0;
-            }
-          }
-          // condicion 3: que el numero no este en el mismo cuadrado (3x3)
-          size_t fila_inicial = (i / 3) * 3;
-          size_t col_inicial = (k / 3) * 3;
-          for(size_t fila = fila_inicial; fila < fila_inicial + 3; fila++) {
-            for(size_t columna = col_inicial; columna < col_inicial + 3; columna++) {
-              if((fila != i || columna != k) && n->sudo[fila][columna] == valor) {
-                return 0;
-              }
-            }
-          }
-        }*/
+      else return 0;
+      // reestablecer valores en 0 para siguiente fila.
+      for (int j = 0; j < 10; j++) {
+        arrAux_fila[j] = 0;
+      } 
     }
   }
+  // condicion 2: Ningun numero repetido en la misma columna
+  for(size_t k = 0; k < 9; k++) {
+    for(size_t i = 0; i < 9; i++) {
+      int num_col = n->sudo[i][k];
+      
+      if(arrAux_col[num_col] == 0) {
+        arrAux_col[num_col] = 1;
+      }
+      else return 0;
+      // reestablecer valores
+      for (int j = 0; j < 10; j++) {
+        arrAux_col[j] = 0;
+      }
+    }
+  }
+  // condicion 3: Ningun numero repetido en la submatriz 3x3
+  
+
+
+
+  
+  
   return 1;
 }
 
