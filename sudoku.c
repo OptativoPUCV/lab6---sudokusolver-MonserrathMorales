@@ -55,30 +55,30 @@ int is_valid(Node* n){
     for(size_t k = 0; k < 9; k++) {
       int num_fila = n->sudo[i][k];
       
-      if(arrAux_fila[num_fila] == 0) {
-        arrAux_fila[num_fila] = 1;
+      if(num_fila != 0) {
+        arrAux_fila[num_fila]++;
+        if(arrAux_fila[num_fila] > 1) return 0;
       }
-      else return 0;
     }
     // reestablecer valores en 0 para siguiente fila.
-      for (int j = 0; j < 10; j++) {
-        arrAux_fila[j] = 0;
-      } 
+    for (int j = 1; j <= 9; j++) {
+      arrAux_fila[j] = 0;
+    } 
   }
   // condicion 2: Ningun numero repetido en la misma columna
   for(size_t k = 0; k < 9; k++) {
     for(size_t i = 0; i < 9; i++) {
       int num_col = n->sudo[i][k];
       
-      if(arrAux_col[num_col] == 0) {
-        arrAux_col[num_col] = 1;
+      if(num_col != 0) {
+        arrAux_col[num_col]++;
+        if(arrAux_col[num_col] > 1) return 0;
       }
-      else return 0;
     }
     // reestablecer valores en 0 para siguiente columna.
-      for (int j = 0; j < 10; j++) {
-        arrAux_col[j] = 0;
-      }
+    for (int j = 1; j <= 9; j++) {
+      arrAux_col[j] = 0;
+    }
   }
   // condicion 3: Ningun numero repetido en la submatriz 3x3
   for (int k = 0; k < 9; k++) {
@@ -89,15 +89,15 @@ int is_valid(Node* n){
       for(size_t k = col; k < col + 3; k++) {
         int num_subM = n->sudo[i][k];
   
-        if(arrAux_subM[num_subM] == 0) {
-          arrAux_subM[num_subM] = 1;
+        if(num_subM != 0) {
+          arrAux_subM[num_subM]++;
+          if(arrAux_subM[num_subM] > 1) return 0;
         }
-        else return 0;
       }
       // reestablecer valores en 0 para siguiente submatriz.
-        for (int j = 0; j < 10; j++) {
-          arrAux_subM[j] = 0;
-        }
+      for (int j = 1; j <= 9; j++) {
+        arrAux_subM[j] = 0;
+      }
     }
   }
   
