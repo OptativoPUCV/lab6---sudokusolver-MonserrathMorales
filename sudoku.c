@@ -133,13 +133,30 @@ Node* DFS(Node* initial, int* cont) {
   Stack * pila = createStack();
   push(pila,initial);
   Node * nodo = NULL;
+  List * visitados = createList();
   
   while (!is_empty(pila)) {
     nodo = first(pila);
     if (nodo == NULL) {
+      pop(pila);
       continue;
     }
-    
+
+    Node * current = first(visitados);
+    int encontrado = 0;
+    while(current != NULL) {
+      if(current == nodo) {
+        encontrado = 1;
+        break;
+      }
+      current = next(visitados);
+    }
+    if(encontrado) {
+      pop(pila);
+      continue;
+    }
+
+    push(visitados, nodo);
     List * adj = get_adj_nodes(nodo);
     Node * aux = first(adj);
     
