@@ -145,25 +145,39 @@ Node* DFS(Node* initial, int* cont) {
     
     if (is_valid(nodo)) {
       void * current = front(visitados);
-      int encontrado = 0;
+      int visitado = 0;
       while(current != NULL) {
         if(current == nodo) {
-          encontrado = 1;
+          visitado = 1;
           break;
         }
         current = next(visitados);
       }
     
-      if(!encontrado) {
+      if(!visitado) {
         push(visitados, nodo);
         List * adj = get_adj_nodes(nodo);
         Node * aux = first(adj);
+        int todos_visitados = 1;
   
         while(aux) {
           push(pila,aux);
           aux = next(adj);
         }
-        solucion = nodo;
+
+        current = front(visitados);
+        while(current != NULL) {
+          if(current != nodo) {
+            todos_visitados = 0;
+            break;
+          }
+          current = next(visitados);
+        }
+        
+        if(todos_visitados) {
+          solucion = nodo;
+          break;
+        }
       }
     }
     pop(pila);
