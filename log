@@ -304,3 +304,26 @@ Fri 06 Oct 2023 12:46:45 AM UTC:
  tests:  2|4
 total_score: 15/70
 e264fad
+Fri 06 Oct 2023 12:54:13 AM UTC: 
+ sudoku.c | 22 +++++++++++++++++-----
+ 1 file changed, 17 insertions(+), 5 deletions(-)
+In file included from test.c:5:
+sudoku.c: In function ‘is_valid’:
+sudoku.c:54:3: error: expected ‘,’ or ‘;’ before ‘for’
+   54 |   for(size_t i = 0; i < 9; i++) {
+      |   ^~~
+sudoku.c:54:21: error: ‘i’ undeclared (first use in this function)
+   54 |   for(size_t i = 0; i < 9; i++) {
+      |                     ^
+sudoku.c:54:21: note: each undeclared identifier is reported only once for each function it appears in
+sudoku.c:54:31: error: expected ‘;’ before ‘)’ token
+   54 |   for(size_t i = 0; i < 9; i++) {
+      |                               ^
+      |                               ;
+sudoku.c:54:31: error: expected statement before ‘)’ token
+sudoku.c:96:9: error: ‘arrAux_submatriz’ undeclared (first use in this function); did you mean ‘arrAux_subM’?
+   96 |         arrAux_submatriz[j] = 0;
+      |         ^~~~~~~~~~~~~~~~
+      |         arrAux_subM
+Compilation failed
+e88808e
