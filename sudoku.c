@@ -132,9 +132,10 @@ int is_final(Node* n) {
 Node* DFS(Node* initial, int* cont) {
   Stack * pila = createStack();
   push(pila,initial);
+  Node * nodo = NULL;
   
-  while (!is_empty(pila)){
-    Node * nodo = first(pila);
+  while (!is_empty(pila)) {
+    nodo = first(pila);
     if (nodo == NULL) {
       continue;
     }
@@ -142,12 +143,12 @@ Node* DFS(Node* initial, int* cont) {
     List * adj = get_adj_nodes(nodo);
     Node * aux = first(adj);
     
-    while(aux){
+    while(aux) {
         push(pila,aux);
         aux = next(adj);
     }
     pop(pila);
-  } 
+  }
   return nodo;
 }
 
