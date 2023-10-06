@@ -98,12 +98,13 @@ int is_valid(Node* n){
           arrAux_subM[j] = 0;
         }
       }
+    }
   }
   
   return 1;
 }
 
-List* get_adj_nodes(Node* n){
+List* get_adj_nodes(Node* n) {
   List* list = createList();
 
   for(size_t i = 0; i < 9; i++) {
@@ -123,12 +124,12 @@ List* get_adj_nodes(Node* n){
 }
 
 
-int is_final(Node* n){
+int is_final(Node* n) {
     return 0;
 }
 
 
-Node* DFS(Node* initial, int* cont){ /*
+Node* DFS(Node* initial, int* cont) { /*
   Stack * pila = createStack();
   push(pila,initial);
   
@@ -162,4 +163,4 @@ int main( int argc, char *argv[] ){
   print_node(final);
 
   return 0;
-}*/
+} */
