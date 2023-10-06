@@ -132,36 +132,44 @@ int is_final(Node* n) {
 Node* DFS(Node* initial, int* cont) {
   Stack * pila = createStack();
   push(pila,initial);
-  Node * nodo = NULL;
+  Node * solucion = NULL;
   List * visitados = createList();
   
   while (!is_empty(pila)) {
-    nodo = first(pila);
-    if (nodo == NULL) {
+    (* cont)++;
+    Node * nodo = first(pila);
+    if(nodo == NULL) {
       pop(pila);
       continue;
     }
-
-    void * current = front(visitados);
-    while(current != NULL) {
-      if(current == nodo) {
-        break;
+    
+    if (is_valid(nodo)) {
+      void * current = front(visitados);
+      int encontrado = 0;
+      while(current != NULL) {
+        if(current == nodo) {
+          encontrado = 1;
+          break;
+        }
+        current = next(visitados);
       }
-      current = next(visitados);
-    }
-    if(current == NULL) {
-      push(visitados, nodo);
-      List * adj = get_adj_nodes(nodo);
-      Node * aux = first(adj);
-
-      while(aux) {
-        push(pila,aux);
-        aux = next(adj);
+    
+      if(!encontrado) {
+        push(visitados, nodo);
+        List * adj = get_adj_nodes(nodo);
+        Node * aux = first(adj);
+  
+        while(aux) {
+          push(pila,aux);
+          aux = next(adj);
+        }
       }
     }
     pop(pila);
   }
-  return nodo;
+  free(visitados);
+  
+  return solucion;
 }
 
 
