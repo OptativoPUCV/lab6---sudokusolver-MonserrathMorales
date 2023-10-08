@@ -92,8 +92,8 @@ int is_valid(Node* n){
           if(arrAux_subM[num_subM] > 1) return 0;
         }
       }
-      for (int j = 1; j <= 9; j++) {
-        arrAux_subM[j] = 0; // reestablecer valores en 0 para siguiente submatriz.
+      for (int indice = 1; indice <= 9; indice++) {
+        arrAux_subM[indice] = 0; // reestablecer valores en 0 para siguiente submatriz.
       }
     }
   }
