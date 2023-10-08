@@ -84,8 +84,8 @@ int is_valid(Node* n){
     int col = 3 * (k % 3);
     
     for(size_t i = fila; i < fila + 3; i++) {
-      for(size_t k = col; k < col + 3; k++) {
-        int num_subM = n->sudo[i][k];
+      for(size_t j = col; j < col + 3; j++) {
+        int num_subM = n->sudo[i][j];
   
         if(num_subM != 0) {
           arrAux_subM[num_subM]++;
