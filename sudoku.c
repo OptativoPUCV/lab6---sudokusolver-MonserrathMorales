@@ -60,9 +60,8 @@ int is_valid(Node* n){
         if(arrAux_fila[num_fila] > 1) return 0;
       }
     }
-    // reestablecer valores en 0 para siguiente fila.
     for (int j = 1; j <= 9; j++) {
-      arrAux_fila[j] = 0;
+      arrAux_fila[j] = 0; // reestablecer valores en 0 para siguiente fila.
     } 
   }
   // condicion 2: Ningun numero repetido en la misma columna
@@ -75,9 +74,8 @@ int is_valid(Node* n){
         if(arrAux_col[num_col] > 1) return 0;
       }
     }
-    // reestablecer valores en 0 para siguiente columna.
     for (int j = 1; j <= 9; j++) {
-      arrAux_col[j] = 0;
+      arrAux_col[j] = 0; // reestablecer valores en 0 para siguiente columna.
     }
   }
   // condicion 3: Ningun numero repetido en la submatriz 3x3
@@ -94,9 +92,8 @@ int is_valid(Node* n){
           if(arrAux_subM[num_subM] > 1) return 0;
         }
       }
-      // reestablecer valores en 0 para siguiente submatriz.
       for (int j = 1; j <= 9; j++) {
-        arrAux_subM[j] = 0;
+        arrAux_subM[j] = 0; // reestablecer valores en 0 para siguiente submatriz.
       }
     }
   }
