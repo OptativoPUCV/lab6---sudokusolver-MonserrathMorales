@@ -108,8 +108,9 @@ List* get_adj_nodes(Node* n) {
     for(size_t k = 0; k < 9; k++) {
       // si esta vacio, crear una posible jugada (nodo adyacente).
       if(n->sudo[i][k] == 0) {
+        Node * copiaNodo;
         for (int num = 1; num <= 9; num++) {
-          Node * copiaNodo = copy(n);
+          copiaNodo = copy(n);
           copiaNodo->sudo[i][k] = num;
           if(is_valid(copiaNodo)) {
             pushBack(list, copiaNodo);
@@ -118,6 +119,7 @@ List* get_adj_nodes(Node* n) {
           //  free(copiaNodo);
           //}
         }
+        return list;
       }
     }
   }
