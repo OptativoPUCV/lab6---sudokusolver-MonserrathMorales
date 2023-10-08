@@ -104,33 +104,25 @@ int is_valid(Node* n){
 List* get_adj_nodes(Node* n) {
   List* list = createList();
 
-  size_t i, k;
-  for(i = 0; i < 9; i++) {
-    for(k = 0; k < 9; k++) {
-      // si esta vacio, crear una posible jugada (nodo adyacente).
-      if(n->sudo[i][k] == 0) {
-        break;
+  for (int num = 1; num <= 9; num++) {
+    for(size_t i = 0; i < 9; i++) {
+      for(size_t k = 0; k < 9; k++) {
+        // si esta vacio, crear una posible jugada (nodo adyacente).
+        if(n->sudo[i][k] == 0) {
+          Node * copiaNodo = copy(n);
+          copiaNodo->sudo[i][k] = num;
+          if(is_valid(copiaNodo)) {
+            pushBack(list, copiaNodo);
+          }
+          else {
+            free(copiaNodo);
+          }
+          return list;
+        }
       }
     }
-    if(k < 9) {
-      break;
-    }
-  }
-  if(i == 9 && k == 9) {
-    return list;
   }
   
-  for (int num = 1; num <= 9; num++) {
-    Node * copiaNodo = copy(n);
-    copiaNodo->sudo[i][k] = num;
-    if(is_valid(copiaNodo)) {
-      pushBack(list, copiaNodo);
-    }
-    else {
-      free(copiaNodo);
-    }
-  }
-
   return list;
 }
 
