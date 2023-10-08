@@ -118,7 +118,6 @@ List* get_adj_nodes(Node* n) {
             free(copiaNodo);
           }
         }
-        return list;
       }
     }
   }
