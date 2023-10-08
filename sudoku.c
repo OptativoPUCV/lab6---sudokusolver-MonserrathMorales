@@ -146,8 +146,10 @@ Node* DFS(Node* initial, int* cont) {
   while (!is_empty(pila)) {
     Node * nodo = top(pila);
     pop(pila);
-    (cont++);
+    (*cont++);
+    
     if (is_final(nodo)) {
+      free(pila);
       return nodo;
     }
     
@@ -158,10 +160,11 @@ Node* DFS(Node* initial, int* cont) {
       push(pila, adj_nodo);
       adj_nodo = next(adj_nodos);
     }
+    
     free(adj_nodos);
     free(nodo);
-    free(pila);
   }
+  free(pila);
   return NULL;
 }
 
