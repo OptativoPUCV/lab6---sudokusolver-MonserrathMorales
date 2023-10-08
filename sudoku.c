@@ -115,9 +115,9 @@ List* get_adj_nodes(Node* n) {
           if(is_valid(copiaNodo)) {
             pushBack(list, copiaNodo);
           }
-          // else {
-          //  free(copiaNodo);
-          //}
+          else {
+            free(copiaNodo);
+          }
         }
         return list;
       }
