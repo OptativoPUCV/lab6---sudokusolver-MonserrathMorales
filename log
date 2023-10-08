@@ -547,3 +547,14 @@ test.c:7:8: error: ‘_strdup’ defined but not used [-Werror=unused-function]
 cc1: all warnings being treated as errors
 Compilation failed
 55a6d26
+Sun 08 Oct 2023 08:33:38 PM UTC: 
+ sudoku.c | 1 +
+ 1 file changed, 1 insertion(+)
+In file included from test.c:5:
+sudoku.c: In function ‘DFS’:
+sudoku.c:155:36: error: ‘nodo’ undeclared (first use in this function)
+  155 |   List * adj_nodos = get_adj_nodes(nodo);
+      |                                    ^~~~
+sudoku.c:155:36: note: each undeclared identifier is reported only once for each function it appears in
+Compilation failed
+71abfd6

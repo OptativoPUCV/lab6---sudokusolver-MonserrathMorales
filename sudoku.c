@@ -149,6 +149,7 @@ Node* DFS(Node* initial, int* cont) {
     (cont++);
     if (is_final(nodo)) {
     return nodo;
+    }
   }
 
   List * adj_nodos = get_adj_nodes(nodo);
