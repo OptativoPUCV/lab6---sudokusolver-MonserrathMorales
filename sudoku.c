@@ -142,59 +142,27 @@ int is_final(Node* n) {
 Node* DFS(Node* initial, int* cont) {
   Stack * pila = createStack();
   push(pila,initial);
-  Node * solucion = NULL;
-  List * visitados = createList();
   
   while (!is_empty(pila)) {
-    (* cont)++;
-    Node * nodo = first(pila);
-    if(nodo == NULL) {
-      pop(pila);
-      continue;
-    }
-    
-    if (is_valid(nodo)) {
-      void * current = front(visitados);
-      int visitado = 0;
-      while(current != NULL) {
-        if(current == nodo) {
-          visitado = 1;
-          break;
-        }
-        current = next(visitados);
-      }
-    
-      if(!visitado) {
-        push(visitados, nodo);
-        List * adj = get_adj_nodes(nodo);
-        Node * aux = first(adj);
-        int todos_visitados = 1;
-  
-        while(aux) {
-          push(pila,aux);
-          aux = next(adj);
-        }
-
-        current = front(visitados);
-        while(current != NULL) {
-          if(current != nodo) {
-            todos_visitados = 0;
-            break;
-          }
-          current = next(visitados);
-        }
-        
-        if(todos_visitados) {
-          solucion = nodo;
-          break;
-        }
-      }
-    }
+    Node * nodo = top(pila);
     pop(pila);
+    (cont++);
   }
-  free(visitados);
+    
+  if (is_final(nodo)) {
+    return nodo;
+  }
+
+  List * adj_nodos = get_adj_nodes(nodo);
+  Node * adj_nodo = first(adj_nodos);
   
-  return solucion;
+  while(adj_nodo != NULL) {
+    push(pila, adj_nodo);
+    adj_nodo = next(adj_nodos);
+  }
+
+  free(adj_nodos);
+  return NULL;
 }
 
 

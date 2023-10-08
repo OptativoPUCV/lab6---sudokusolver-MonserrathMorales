@@ -511,3 +511,18 @@ Sun 08 Oct 2023 08:23:27 PM UTC:
  tests:  6|2
 total_score: 45/70
 54f677a
+Sun 08 Oct 2023 08:32:42 PM UTC: 
+ sudoku.c | 54 +++++++++++-------------------------------------------
+ 1 file changed, 11 insertions(+), 43 deletions(-)
+In file included from test.c:5:
+sudoku.c: In function ‘DFS’:
+sudoku.c:147:12: error: unused variable ‘nodo’ [-Werror=unused-variable]
+  147 |     Node * nodo = top(pila);
+      |            ^~~~
+sudoku.c:152:16: error: ‘nodo’ undeclared (first use in this function)
+  152 |   if (is_final(nodo)) {
+      |                ^~~~
+sudoku.c:152:16: note: each undeclared identifier is reported only once for each function it appears in
+cc1: all warnings being treated as errors
+Compilation failed
+4e5e14a
