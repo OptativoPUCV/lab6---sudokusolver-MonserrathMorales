@@ -147,9 +147,7 @@ Node* DFS(Node* initial, int* cont) {
     Node * nodo = top(pila);
     pop(pila);
     (cont++);
-  }
-    
-  if (is_final(nodo)) {
+    if (is_final(nodo)) {
     return nodo;
   }
 
