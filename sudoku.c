@@ -146,7 +146,7 @@ Node* DFS(Node* initial, int* cont) {
   while (!is_empty(pila)) {
     Node * nodo = top(pila);
     pop(pila);
-    (*cont++);
+    (cont++);
     
     if (is_final(nodo)) {
       free(pila);
