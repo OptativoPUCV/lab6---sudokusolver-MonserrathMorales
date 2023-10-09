@@ -55,10 +55,10 @@ int is_valid(Node* n){
     for(size_t k = 0; k < 9; k++) {
       int num_fila = n->sudo[i][k];
       
-      if(num_fila != 0) {
-        arrAux_fila[num_fila]++;
-        if(arrAux_fila[num_fila] > 1) return 0;
+      if(num_fila == 0) {
+        arrAux_fila[num_fila] = 1;
       }
+      else return 0;
     }
     for (int j = 1; j <= 9; j++) {
       arrAux_fila[j] = 0; // reestablecer valores en 0 para siguiente fila.
@@ -69,10 +69,10 @@ int is_valid(Node* n){
     for(size_t i = 0; i < 9; i++) {
       int num_col = n->sudo[k][i];
       
-      if(num_col != 0) {
-        arrAux_col[num_col]++;
-        if(arrAux_col[num_col] > 1) return 0;
+      if(num_col == 0) {
+        arrAux_fila[num_col] = 1;
       }
+      else return 0;
     }
     for (int j = 1; j <= 9; j++) {
       arrAux_col[j] = 0; // reestablecer valores en 0 para siguiente columna.
@@ -87,10 +87,10 @@ int is_valid(Node* n){
       for(size_t j = col; j < col + 3; j++) {
         int num_subM = n->sudo[i][j];
   
-        if(num_subM != 0) {
-          arrAux_subM[num_subM]++;
-          if(arrAux_subM[num_subM] > 1) return 0;
+        if(num_subM == 0) {
+        arrAux_fila[num_subM] = 1;
         }
+        else return 0;
       }
       for (int indice = 1; indice <= 9; indice++) {
         arrAux_subM[indice] = 0; // reestablecer valores en 0 para siguiente submatriz.
