@@ -67,7 +67,7 @@ int is_valid(Node* n){
   // condicion 2: Ningun numero repetido en la misma columna
   for(size_t k = 0; k < 9; k++) {
     for(size_t i = 0; i < 9; i++) {
-      int num_col = n->sudo[i][k];
+      int num_col = n->sudo[k][i];
       
       if(num_col != 0) {
         arrAux_col[num_col]++;
@@ -109,11 +109,14 @@ List* get_adj_nodes(Node* n) {
       // si esta vacio, crear una posible jugada (nodo adyacente).
       if(n->sudo[i][k] == 0) {
         for (int num = 1; num <= 9; num++) {
-          n->sudo[i][k] = num;
+          Node * copiaNodo = copy(n);
+          copiaNodo->sudo[i][k] = num;
           
-          if(is_valid(n)) {
-            Node * copiaNodo = copy(n);
+          if(is_valid(copiaNodo)) {
             pushBack(list, copiaNodo);
+          }
+          else {
+            free(copiaNodo);
           }
         }
         return list;
