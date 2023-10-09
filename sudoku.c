@@ -144,9 +144,9 @@ Node* DFS(Node* initial, int* cont) {
   push(pila,initial);
   
   while (!is_empty(pila)) {
+    (*cont)++;
     Node * nodo = top(pila);
     pop(pila);
-    
     if (is_final(nodo)) {
       free(pila);
       return nodo;
@@ -154,15 +154,11 @@ Node* DFS(Node* initial, int* cont) {
     
     List * adj_nodos = get_adj_nodes(nodo);
     
-    Node * adj_nodo = first(adj_nodos);
-    while(adj_nodo != NULL) {
-      push(pila, adj_nodo);
-      adj_nodo = next(adj_nodos);
-      (*cont)++;
+    Node * nodo_adyac = first(adj_nodos);
+    while(nodo_adyac != NULL) {
+      push(pila, nodo_adyac);
+      nodo_adyac = next(adj_nodos);
     }
-    free(adj_nodos);
-    free(adj_nodo);
-    free(nodo);
   }
   free(pila);
   return NULL;
