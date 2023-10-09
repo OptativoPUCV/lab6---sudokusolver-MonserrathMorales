@@ -74,7 +74,7 @@ int is_valid(Node* n){
       int num_col = n->sudo[k][i];
       
       if(num_col != 0) {
-        if(arrAux_fila[num_col] == 1) {
+        if(arrAux_col[num_col] == 1) {
           return 0;
         }
         else if(arrAux_col[num_col] == 0) {
@@ -96,13 +96,13 @@ int is_valid(Node* n){
         int num_subM = n->sudo[i][j];
   
         if(num_subM != 0) {
-          if(arrAux_fila[num_subM] == 1) {
+          if(arrAux_subM[num_subM] == 1) {
             return 0;
           }
-          else if(arrAux_col[num_subM] == 0) {
-            arrAux_col[num_subM]++;
+          else if(arrAux_subM[num_subM] == 0) {
+            arrAux_subM[num_subM]++;
           }
-        }
+        
       }
       for (int indice = 1; indice <= 9; indice++) {
         arrAux_subM[indice] = 0; // reestablecer valores en 0 para siguiente submatriz.
