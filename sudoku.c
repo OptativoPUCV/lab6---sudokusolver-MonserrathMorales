@@ -87,27 +87,23 @@ int is_valid(Node* n){
     }
   }
   // condicion 3: Ningun numero repetido en la submatriz 3x3
-  int k = 4, p; 
-  for(p = 0; p < 9; p++){
-    int fila = 3 * (k / 3) + (p / 3);
-    int col = 3 * (k % 3) + (p % 3);
-    
-    for(size_t i = fila; i < fila + 3; i++) {
-      for(size_t j = col; j < col + 3; j++) {
-        int num_subM = n->sudo[i][j];
-  
-        if(num_subM != 0) {
-          if(arrAux_subM[num_subM] == 1) {
-            return 0;
-          }
-          else if(arrAux_subM[num_subM] == 0) {
-            arrAux_subM[num_subM]++;
-          }
+  for(int p = 0; p < 9; p++) {
+    for(int k = 0; k < 9; k++) {
+      int fila = 3 * (k / 3) + (p / 3);
+      int col = 3 * (k % 3) + (p % 3);
+      int num_subM = n->sudo[fila][col];
+
+      if(num_subM != 0) {
+        if(arrAux_subM[num_subM] == 1) {
+          return 0;
+        }
+        else if(arrAux_subM[num_subM] == 0) {
+          arrAux_subM[num_subM]++;
         }
       }
-      for (int indice = 1; indice <= 9; indice++) {
+    }
+    for (int indice = 1; indice <= 9; indice++) {
         arrAux_subM[indice] = 0; // reestablecer valores en 0 para siguiente submatriz.
-      }
     }
   }
   
