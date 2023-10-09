@@ -60,7 +60,7 @@ int is_valid(Node* n){
           return 0;
         }
         else if(arrAux_fila[num_fila] == 0) {
-          arrAux_fila[num_fila]++;
+          arrAux_fila[num_fila] = 1;
         }
       }
     }
@@ -78,7 +78,7 @@ int is_valid(Node* n){
           return 0;
         }
         else if(arrAux_col[num_col] == 0) {
-          arrAux_col[num_col]++;
+          arrAux_col[num_col] = 1;
         }
       }
     }
@@ -98,7 +98,7 @@ int is_valid(Node* n){
           return 0;
         }
         else if(arrAux_subM[num_subM] == 0) {
-          arrAux_subM[num_subM]++;
+          arrAux_subM[num_subM] = 1;
         }
       }
     }
