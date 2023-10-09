@@ -56,10 +56,10 @@ int is_valid(Node* n){
       int num_fila = n->sudo[i][k];
       
       if(num_fila != 0) {
-        if(arrAux_fila[num_fila] == 1) {
+        if(arrAux_fila[num_fila] > 0) {
           return 0;
         }
-        else if(arrAux_fila[num_fila] == 0) {
+        else {
           arrAux_fila[num_fila] = 1;
         }
       }
@@ -74,10 +74,10 @@ int is_valid(Node* n){
       int num_col = n->sudo[k][i];
       
       if(num_col != 0) {
-        if(arrAux_col[num_col] == 1) {
+        if(arrAux_col[num_col] > 0) {
           return 0;
         }
-        else if(arrAux_col[num_col] == 0) {
+        else {
           arrAux_col[num_col] = 1;
         }
       }
@@ -97,7 +97,7 @@ int is_valid(Node* n){
         if(arrAux_subM[num_subM] > 0) {
           return 0;
         }
-        else if(arrAux_subM[num_subM] == 0) {
+        else {
           arrAux_subM[num_subM] = 1;
         }
       }
