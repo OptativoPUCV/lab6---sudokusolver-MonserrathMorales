@@ -87,9 +87,10 @@ int is_valid(Node* n){
     }
   }
   // condicion 3: Ningun numero repetido en la submatriz 3x3
-  for (int k = 0; k < 9; k++) {
-    int fila = 3 * (k / 3);
-    int col = 3 * (k % 3);
+  int k = 4, p; 
+  for(p = 0; p < 9; p++){
+    int fila = 3 * (k / 3) + (p / 3);
+    int col = 3 * (k % 3) + (p % 3);
     
     for(size_t i = fila; i < fila + 3; i++) {
       for(size_t j = col; j < col + 3; j++) {
