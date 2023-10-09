@@ -66,7 +66,7 @@ int is_valid(Node* n){
     }
     for (int j = 1; j <= 9; j++) {
       arrAux_fila[j] = 0; // reestablecer valores en 0 para siguiente fila.
-    } 
+    }
   }
   // condicion 2: Ningun numero repetido en la misma columna
   for(size_t k = 0; k < 9; k++) {
@@ -102,7 +102,7 @@ int is_valid(Node* n){
           else if(arrAux_subM[num_subM] == 0) {
             arrAux_subM[num_subM]++;
           }
-        
+        }
       }
       for (int indice = 1; indice <= 9; indice++) {
         arrAux_subM[indice] = 0; // reestablecer valores en 0 para siguiente submatriz.
