@@ -96,11 +96,12 @@ int is_valid(Node* n){
         int num_subM = n->sudo[i][j];
   
         if(num_subM != 0) {
-        if(arrAux_fila[num_subM] == 1) {
-          return 0;
-        }
-        else if(arrAux_col[num_subM] == 0) {
-          arrAux_col[num_subM]++;
+          if(arrAux_fila[num_subM] == 1) {
+            return 0;
+          }
+          else if(arrAux_col[num_subM] == 0) {
+            arrAux_col[num_subM]++;
+          }
         }
       }
       for (int indice = 1; indice <= 9; indice++) {
