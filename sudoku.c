@@ -57,7 +57,7 @@ int is_valid(Node* n){
       
       if(num_fila != 0) {
         arrAux_fila[num_fila]++;
-        if(arrAux_fila[num_fila] > 1) return 0;
+        if(arrAux_fila[num_fila] == 1) return 0;
       }
     }
     for (int j = 1; j <= 9; j++) {
@@ -71,7 +71,7 @@ int is_valid(Node* n){
       
       if(num_col != 0) {
         arrAux_col[num_col]++;
-        if(arrAux_col[num_col] > 1) return 0;
+        if(arrAux_col[num_col] == 1) return 0;
       }
     }
     for (int j = 1; j <= 9; j++) {
@@ -89,7 +89,7 @@ int is_valid(Node* n){
   
         if(num_subM != 0) {
           arrAux_subM[num_subM]++;
-          if(arrAux_subM[num_subM] > 1) return 0;
+          if(arrAux_subM[num_subM] == 1) return 0;
         }
       }
       for (int indice = 1; indice <= 9; indice++) {
