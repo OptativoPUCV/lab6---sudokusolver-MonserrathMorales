@@ -157,6 +157,7 @@ Node* DFS(Node* initial, int* cont) {
     Node * nodo = top(pila);
     pop(pila);
     if (is_final(nodo)) {
+      free(pila);
       return nodo;
     }
     
@@ -167,7 +168,6 @@ Node* DFS(Node* initial, int* cont) {
       nodo_adyac = next(adj_nodos);
     }
     free(adj_nodos);
-    free(nodo);
   }
   free(pila);
   return NULL;
