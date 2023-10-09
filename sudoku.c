@@ -44,7 +44,8 @@ void print_node(Node* n){
     printf("\n");
 }
 
-  // Para marcar los números que vayan apareciendo en una fila/columna/submatriz puede usar un arreglo de enteros de largo 10 inicializado con 0s. Cada vez que aparezca un número i, verifique que la casilla i del arreglo sea igual a 0, luego márquela con un '1'. Si la casilla es '1' quiere decir que el número ya estaba marcado por lo que la fla/columna/submatriz no es válida.
+/* Esta función inicializa tres arreglos auxiliares, uno para filas, otro para columnas y otro para submatrices, para rastrear números ya vistos. Se verifica que no haya números repetidos en la misma fila, en la misma columna, ni en la misma submatriz 3x3.
+Si pasa todas las verificaciones sin encontrar números repetidos, retorna 1, indicando que el Sudoku es válido. En caso contrario, retorna 0, indicando que no es válido. */
 int is_valid(Node* n){ 
   int arrAux_fila[10] = {0};
   int arrAux_col[10] = {0};
@@ -110,6 +111,7 @@ int is_valid(Node* n){
   return 1;
 }
 
+/* Esta función inicializa una lista vacía (List* list) para almacenar los nodos adyacentes. Se recorren todas las celdas vacías en el tablero de Sudoku y para cada celda vacía, crea una copia del nodo actual y prueba números del 1 al 9 como posibles jugadas. Si una jugada es válida (sin números repetidos en filas, columnas o submatrices), agrega la copia del nodo a la lista de nodos adyacentes. Finalmente Retorna la lista de nodos adyacentes, que representa todas las jugadas posibles en las celdas vacías del Sudoku. */
 List* get_adj_nodes(Node* n) {
   List* list = createList();
 
@@ -135,7 +137,7 @@ List* get_adj_nodes(Node* n) {
   return list;
 }
 
-
+/* Esta función recorre todas las celdas del tablero de Sudoku utilizando dos bucles anidados. Si encuentra al menos una celda vacía (donde n->sudo[i][k] == 0), retorna 0, indicando que el Sudoku no está completo. Si no encuentra ninguna celda vacía después de recorrer todo el tablero, retorna 1, indicando que el Sudoku está completo y cumple con las reglas del juego. */
 int is_final(Node* n) {
   for(size_t i = 0; i < 9; i++) {
     for(size_t k = 0; k < 9; k++) {
@@ -147,7 +149,7 @@ int is_final(Node* n) {
     return 1;
 }
 
-
+/* Esta función inicializa una pila y la inserta con el nodo inicial. Mientras la pila no esté vacía, se incrementa el contador, se obtiene y elimina el nodo en la cima de la pila, y si es un estado final, lo devuelve y libera la memoria de la pila. Luego, agrega los nodos adyacentes a la pila. Si no encuentra un estado final, devuelve NULL y libera la memoria de la pila. */
 Node* DFS(Node* initial, int* cont) {
   Stack * pila = createStack();
   push(pila,initial);
