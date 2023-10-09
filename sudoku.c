@@ -62,6 +62,7 @@ int is_valid(Node* n){
         else if(arrAux_fila[num_fila] == 0) {
           arrAux_fila[num_fila]++;
         }
+      }
     }
     for (int j = 1; j <= 9; j++) {
       arrAux_fila[j] = 0; // reestablecer valores en 0 para siguiente fila.

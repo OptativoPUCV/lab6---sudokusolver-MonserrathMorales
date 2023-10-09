@@ -685,3 +685,17 @@ test.c:7:8: error: ‘_strdup’ defined but not used [-Werror=unused-function]
 cc1: all warnings being treated as errors
 Compilation failed
 1f6a369
+Mon 09 Oct 2023 01:22:39 AM UTC: 
+ sudoku.c | 1 +
+ 1 file changed, 1 insertion(+)
+In file included from test.c:5:
+sudoku.c: In function ‘is_valid’:
+sudoku.c:51:7: error: variable ‘arrAux_subM’ set but not used [-Werror=unused-but-set-variable]
+   51 |   int arrAux_subM[10] = {0};
+      |       ^~~~~~~~~~~
+sudoku.c:50:7: error: variable ‘arrAux_col’ set but not used [-Werror=unused-but-set-variable]
+   50 |   int arrAux_col[10] = {0};
+      |       ^~~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+18d65a1
